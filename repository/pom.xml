@@ -98,7 +98,7 @@
                     <artifactId>*</artifactId>
                 </exclusion>
             </exclusions>
-            <version>2.1.8</version>
+            <version>2.1.20</version>
         </dependency>
 
 
@@ -179,17 +179,7 @@
         <dependency>
             <groupId>com.datastax.cassandra</groupId>
             <artifactId>cassandra-driver-core</artifactId>
-            <version>3.1.4</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>ch.qos.logback</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>io.dropwizard.metrics</groupId>
-                    <artifactId>metrics-core</artifactId>
-                </exclusion>
-            </exclusions>
+            <classifier>shaded</classifier>
         </dependency>
         <dependency>
             <groupId>org.cassandraunit</groupId>
