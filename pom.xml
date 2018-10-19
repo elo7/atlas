@@ -738,6 +738,8 @@
         <testng.version>6.9.4</testng.version>
         <joda-time.version>2.10</joda-time.version>
         <jersey-spring.version>1.19.4</jersey-spring.version>
+        <!-- Cassandra dependencies for janus wth cql and reposository -->
+        <cassandra-core.version>3.3.2</cassandra-core.version>
     </properties>
 
     <modules>
@@ -1324,6 +1326,28 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-test</artifactId>
                 <version>${spring.version}</version>
+            </dependency>
+
+            <!-- Cassandra -->
+            <dependency>
+                <groupId>com.datastax.cassandra</groupId>
+                <artifactId>cassandra-driver-core</artifactId>
+                <version>${cassandra-core.version}</version>
+                <classifier>shaded</classifier>
+                <exclusions>
+                    <exclusion>
+                        <groupId>ch.qos.logback</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>io.dropwizard.metrics</groupId>
+                        <artifactId>metrics-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>io.netty</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
             <!--  atlas modules -->
